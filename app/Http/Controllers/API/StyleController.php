@@ -24,7 +24,7 @@ class StyleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->apiService->create('style', $request);
     }
 
     /**

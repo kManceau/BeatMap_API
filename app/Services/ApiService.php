@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Http\Requests\Artists\CreateArtistFormRequest;
 use App\Http\Requests\Events\CreateEventFormRequest;
 use App\Http\Requests\Places\CreatePlaceFormRequest;
+use App\Http\Requests\Styles\CreateStyleFormRequest;
 
 class ApiService
 {
@@ -74,6 +75,10 @@ class ApiService
             case 'place' :
                 $validatedData = $data->validate((new CreatePlaceFormRequest())->rules());
                 $validatedData = new Place($validatedData);
+                break;
+            case 'style' :
+                $validatedData = $data->validate((new CreateStyleFormRequest())->rules());
+                $validatedData = new Style($validatedData);
                 break;
         }
         $validatedData->save();
