@@ -31,7 +31,7 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        //
+        return $this->apiService->update('event', $request, $event);
     }
 
     public function destroy(Event $event)

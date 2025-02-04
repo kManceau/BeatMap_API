@@ -12,6 +12,9 @@ use App\Http\Requests\Artists\UpdateArtistFormRequest;
 use App\Http\Requests\Events\CreateEventFormRequest;
 use App\Http\Requests\Places\CreatePlaceFormRequest;
 use App\Http\Requests\Styles\CreateStyleFormRequest;
+use App\Http\Requests\Events\UpdateEventFormRequest;
+//use App\Http\Requests\Places\UpdatePlaceFormRequest;
+//use App\Http\Requests\Styles\UpdateStyleFormRequest;
 
 class ApiService
 {
@@ -94,6 +97,9 @@ class ApiService
         switch ($model) {
             case 'artist' :
                 $validatedData = $request->validate((new UpdateArtistFormRequest())->rules());
+                break;
+            case 'event' :
+                $validatedData = $request->validate((new UpdateEventFormRequest())->rules());
                 break;
         }
         $data->update($validatedData);
