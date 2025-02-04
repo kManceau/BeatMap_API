@@ -8,6 +8,7 @@ use App\Models\Place;
 use App\Models\Style;
 use App\Models\User;
 use App\Http\Requests\Artists\CreateArtistFormRequest;
+use App\Http\Requests\Artists\UpdateArtistFormRequest;
 use App\Http\Requests\Events\CreateEventFormRequest;
 use App\Http\Requests\Places\CreatePlaceFormRequest;
 use App\Http\Requests\Styles\CreateStyleFormRequest;
@@ -61,29 +62,43 @@ class ApiService
         return response()->json(['status' => strtoupper($model[0]) . substr($model, 1) . ' deleted successfully']);
     }
 
-    public function create($model, $data)
+    public function create($model, $request)
     {
         switch ($model) {
             case 'artist' :
-                $validatedData = $data->validate((new CreateArtistFormRequest())->rules());
+                $validatedData = $request->validate((new CreateArtistFormRequest())->rules());
                 $validatedData = new Artist($validatedData);
                 break;
             case 'event' :
-                $validatedData = $data->validate((new CreateEventFormRequest())->rules());
+                $validatedData = $request->validate((new CreateEventFormRequest())->rules());
                 $validatedData = new Event($validatedData);
                 break;
             case 'place' :
-                $validatedData = $data->validate((new CreatePlaceFormRequest())->rules());
+                $validatedData = $request->validate((new CreatePlaceFormRequest())->rules());
                 $validatedData = new Place($validatedData);
                 break;
             case 'style' :
-                $validatedData = $data->validate((new CreateStyleFormRequest())->rules());
+                $validatedData = $request->validate((new CreateStyleFormRequest())->rules());
                 $validatedData = new Style($validatedData);
                 break;
         }
         $validatedData->save();
         return response()->json([
             'status' => strtoupper($model[0]) . substr($model, 1) . ' created successfully',
+            'data' => $validatedData,
+        ]);
+    }
+
+    public function update($model, $request, $data)
+    {
+        switch ($model) {
+            case 'artist' :
+                $validatedData = $request->validate((new UpdateArtistFormRequest())->rules());
+                break;
+        }
+        $data->update($validatedData);
+        return response()->json([
+            'status' => strtoupper($model[0]) . substr($model, 1) . ' updated successfully',
             'data' => $validatedData,
         ]);
     }

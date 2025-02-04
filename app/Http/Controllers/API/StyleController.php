@@ -19,33 +19,21 @@ class StyleController extends Controller
         return $this->apiService->getAll('styles');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         return $this->apiService->create('style', $request);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Style $style)
     {
         return $this->apiService->getOne('style', $style);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Style $style)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Style $style)
     {
         return $this->apiService->delete('style', $style);

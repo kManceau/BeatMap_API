@@ -19,33 +19,21 @@ class ArtistController extends Controller
         return $this->apiService->getAll('artists');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         return $this->apiService->create('artist', $request);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Artist $artist)
     {
         return $this->apiService->getOne('artist', $artist);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Artist $artist)
     {
-        //
+        return $this->apiService->update('artist', $request, $artist);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Artist $artist)
     {
         return $this->apiService->delete('artist', $artist);

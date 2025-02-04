@@ -19,33 +19,21 @@ class UserController extends Controller
         return $this->apiService->getAll('users');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(User $user)
     {
         return $this->apiService->getOne('user', $user);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, User $user)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(User $user)
     {
         return $this->apiService->delete('user', $user);

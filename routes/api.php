@@ -26,7 +26,12 @@ Route::post('/artists', [ArtistController::class, 'store'])->name('artists.creat
 Route::post('/events', [EventController::class, 'store'])->name('events.create');
 Route::post('/places', [PlaceController::class, 'store'])->name('places.create');
 Route::post('/styles', [StyleController::class, 'store'])->name('styles.create');
-//Route::get('/user/{user}', [UserController::class, 'show'])->name('users.one');
+
+// UPDATE Routes
+Route::post('/artist/{artist}', [ArtistController::class, 'update'])->name('artists.update');
+Route::post('/events', [EventController::class, 'store'])->name('events.create');
+Route::post('/places', [PlaceController::class, 'store'])->name('places.create');
+Route::post('/styles', [StyleController::class, 'store'])->name('styles.create');
 
 // DELETE Routes
 Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');

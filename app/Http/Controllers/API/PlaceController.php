@@ -19,33 +19,21 @@ class PlaceController extends Controller
         return $this->apiService->getAll('places');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         return $this->apiService->create('place', $request);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Place $place)
     {
         return $this->apiService->getOne('place', $place);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Place $place)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Place $place)
     {
         return $this->apiService->delete('place', $place);

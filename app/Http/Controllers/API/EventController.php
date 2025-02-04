@@ -19,33 +19,21 @@ class EventController extends Controller
         return $this->apiService->getAll('events');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         return $this->apiService->create('event', $request);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Event $event)
     {
         return $this->apiService->getOne('event', $event);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Event $event)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Event $event)
     {
         return $this->apiService->delete('event', $event);
