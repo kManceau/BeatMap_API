@@ -13,14 +13,13 @@ return new class extends Migration {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('type');
             $table->text('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->float('lat');
-            $table->float('long');
             $table->string('logo');
-            $table->integer('created_by');
-            $table->boolean('approved');
+            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('place_id')->constrained('places');
         });
     }
 
