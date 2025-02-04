@@ -44,8 +44,8 @@ classDiagram
         string : artist_photo
         int : style_id
     }
-    class Events_Artists{
-        int : eventsartists_id
+    class Artist_Event{
+        int : artist_event_id
         int : event_id
         int : artist_id
     }
@@ -58,6 +58,6 @@ classDiagram
     Users --> Places
     Places --> Events
     Styles --> Artists
-    Artists --> Events_Artists
-    Events --> Events_Artists
+    Artists --> Artist_Event
+    Events --> Artist_Event
 ```
