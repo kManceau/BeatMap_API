@@ -32,7 +32,7 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        //
+        return $this->apiService->getOne('artist', $artist);
     }
 
     /**

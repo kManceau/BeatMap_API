@@ -32,7 +32,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return $this->apiService->getOne('event', $event);
     }
 
     /**

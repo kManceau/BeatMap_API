@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->date('start_date');
             $table->date('end_date');
             $table->string('logo')->nullable();
-            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('place_id')->constrained('places');
         });
     }

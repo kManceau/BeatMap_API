@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return $this->apiService->getOne('user', $user);
     }
 
     /**

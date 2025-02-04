@@ -32,7 +32,7 @@ class StyleController extends Controller
      */
     public function show(Style $style)
     {
-        //
+        return $this->apiService->getOne('style', $style);
     }
 
     /**

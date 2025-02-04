@@ -32,7 +32,7 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        //
+        return $this->apiService->getOne('place', $place);
     }
 
     /**

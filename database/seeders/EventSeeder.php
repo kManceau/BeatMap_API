@@ -21,7 +21,7 @@ class EventSeeder extends Seeder
             'start_date' => '2025-03-10',
             'end_date' => '2025-03-10',
             'logo' => null,
-            'created_by' => 1,
+            'user_id' => 1,
             'place_id' => 2,
         ]);
         Event::create([
@@ -32,7 +32,7 @@ class EventSeeder extends Seeder
             'start_date' => '2025-08-01',
             'end_date' => '2025-08-03',
             'logo' => null,
-            'created_by' => 1,
+            'user_id' => 1,
             'place_id' => 1,
         ]);
     }

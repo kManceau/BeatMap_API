@@ -23,7 +23,7 @@ return new class extends Migration
             $table->float('latitude');
             $table->float('longitude');
             $table->string('photo')->nullable();
-            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

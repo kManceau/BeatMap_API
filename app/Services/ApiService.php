@@ -13,23 +13,41 @@ class ApiService
     public function getAll($model)
     {
         switch ($model) {
+            case 'artists' :
+                $data = Artist::with('style')->get();
+                break;
             case 'events' :
-                $query = Event::all();
+                $data = Event::with(['place', 'artists', 'user'])->get();
                 break;
             case 'places' :
-                $query = Place::all();
-                break;
-            case 'users' :
-                $query = User::all();
+                $data = Place::with(['events', 'user'])->get();
                 break;
             case 'styles' :
-                $query = Style::all();
+                $data = Style::with(['artists'])->get();
                 break;
-            case 'artists' :
-                $query = Artist::all();
+            case 'users' :
+                $data = User::all();
                 break;
         }
-        $data = $query->get();
+        return response()->json($data);
+    }
+
+    public function getOne($model, $data)
+    {
+        switch ($model) {
+            case 'artist' :
+                $data->load('style');
+                break;
+            case 'event' :
+                $data->load(['place', 'artists', 'user']);
+                break;
+            case 'place' :
+                $data->load(['events', 'user']);
+                break;
+            case 'style' :
+                $data->load(['artists']);
+                break;
+        }
         return response()->json($data);
     }
 }

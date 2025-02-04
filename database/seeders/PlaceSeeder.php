@@ -25,7 +25,7 @@ class PlaceSeeder extends Seeder
             'latitude' => '43.101745037272835',
             'longitude' => '5.885990570469692',
             'photo' => null,
-            'created_by' => 1,
+            'user_id' => 1,
         ]);
         Place::create([
             'id' => 2,
@@ -39,7 +39,7 @@ class PlaceSeeder extends Seeder
             'latitude' => '47.38463899422877',
             'longitude' => '0.7013454824868651',
             'photo' => null,
-            'created_by' => 1,
+            'user_id' => 1,
         ]);
     }
 }
