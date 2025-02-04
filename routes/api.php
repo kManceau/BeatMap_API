@@ -21,6 +21,13 @@ Route::get('/place/{place}', [PlaceController::class, 'show'])->name('places.one
 Route::get('/style/{style}', [StyleController::class, 'show'])->name('styles.one');
 Route::get('/user/{user}', [UserController::class, 'show'])->name('users.one');
 
+// CREATE Routes
+Route::post('/artists/', [ArtistController::class, 'store'])->name('artists.create');
+//Route::get('/event/{event}', [EventController::class, 'show'])->name('events.one');
+//Route::get('/place/{place}', [PlaceController::class, 'show'])->name('places.one');
+//Route::get('/style/{style}', [StyleController::class, 'show'])->name('styles.one');
+//Route::get('/user/{user}', [UserController::class, 'show'])->name('users.one');
+
 // DELETE Routes
 Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');
 Route::delete('/event/{event}', [EventController::class, 'destroy'])->name('events.delete');

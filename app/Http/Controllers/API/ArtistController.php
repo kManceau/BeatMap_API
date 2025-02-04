@@ -24,7 +24,7 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->apiService->create('artist', $request);
     }
 
     /**

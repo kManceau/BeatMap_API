@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Place;
 use App\Models\Style;
 use App\Models\User;
+use App\Http\Requests\Artists\CreateArtistFormRequest;
 
 class ApiService
 {
@@ -55,5 +56,21 @@ class ApiService
     {
         $data->delete();
         return response()->json(['status' => strtoupper($model[0]) . substr($model, 1) . ' deleted successfully']);
+    }
+
+    public function create($model, $data)
+    {
+        switch ($model) {
+            case 'artist' :
+                $validatedData = $data->validate((new CreateArtistFormRequest())->rules());
+                $validatedData = new Artist($validatedData);
+                break;
+        }
+        
+        $validatedData->save();
+        return response()->json([
+            'status' => strtoupper($model[0]) . substr($model, 1) . ' created successfully',
+            'data' => $validatedData,
+        ]);
     }
 }
