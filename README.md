@@ -16,8 +16,13 @@ classDiagram
         int : place_id
         string : place_name
         text : place_description
-        float : place_lat
-        float : place_long
+        string : place_address
+        string : place_city
+        string : place_state
+        string : place_zip
+        string : place_country
+        float : place_latitude
+        float : place_longitude
         string : place_photo
         int : place_created_by
     }
