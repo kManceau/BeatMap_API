@@ -17,7 +17,7 @@ class Event extends Model
         'start_date',
         'end_date',
         'photo',
-        'created_by',
+        'user_id',
         'place_id',
     ];
 

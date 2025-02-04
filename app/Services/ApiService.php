@@ -8,6 +8,7 @@ use App\Models\Place;
 use App\Models\Style;
 use App\Models\User;
 use App\Http\Requests\Artists\CreateArtistFormRequest;
+use App\Http\Requests\Events\CreateEventFormRequest;
 
 class ApiService
 {
@@ -65,8 +66,11 @@ class ApiService
                 $validatedData = $data->validate((new CreateArtistFormRequest())->rules());
                 $validatedData = new Artist($validatedData);
                 break;
+            case 'event' :
+                $validatedData = $data->validate((new CreateEventFormRequest())->rules());
+                $validatedData = new Event($validatedData);
+                break;
         }
-        
         $validatedData->save();
         return response()->json([
             'status' => strtoupper($model[0]) . substr($model, 1) . ' created successfully',

@@ -21,7 +21,7 @@ class Place extends Model
         'latitude',
         'longitude',
         'photo',
-        'created_by',
+        'user_id',
     ];
 
     public function user()

@@ -24,7 +24,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->apiService->create('event', $request);
     }
 
     /**
