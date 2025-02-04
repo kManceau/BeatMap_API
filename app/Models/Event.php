@@ -16,7 +16,7 @@ class Event extends Model
         'description',
         'start_date',
         'end_date',
-        'logo',
+        'photo',
         'created_by',
         'place_id',
     ];

@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'role' => 'admin',
-            'avatar' => null,
+            'photo' => null,
         ]);
         User::create([
             'id' => 2,
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'role' => 'user',
-            'avatar' => null,
+            'photo' => null,
         ]);
 
         User::factory(3)->create();

@@ -20,18 +20,18 @@ class EventSeeder extends Seeder
             'description' => 'Venez écoutez GiéDré jouer son dernier album !',
             'start_date' => '2025-03-10',
             'end_date' => '2025-03-10',
-            'logo' => null,
+            'photo' => null,
             'user_id' => 1,
             'place_id' => 2,
         ]);
         Event::create([
             'id' => 2,
             'name' => 'La Kermesse Festival',
-            'type' => 'Festival',
+            'type' => 'festival',
             'description' => 'Meilleur Festival de France, voir même du monde.',
             'start_date' => '2025-08-01',
             'end_date' => '2025-08-03',
-            'logo' => null,
+            'photo' => null,
             'user_id' => 1,
             'place_id' => 1,
         ]);
