@@ -4,16 +4,19 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Services\ApiService;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private $apiService;
+    public function __construct(ApiService $apiService)
+    {
+        $this->apiService = $apiService;
+    }
     public function index()
     {
-        //
+        return $this->apiService->getAll('events');
     }
 
     /**
