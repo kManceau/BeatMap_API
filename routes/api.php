@@ -22,9 +22,9 @@ Route::get('/style/{style}', [StyleController::class, 'show'])->name('styles.one
 Route::get('/user/{user}', [UserController::class, 'show'])->name('users.one');
 
 // CREATE Routes
-Route::post('/artists/', [ArtistController::class, 'store'])->name('artists.create');
-Route::post('/events/', [EventController::class, 'store'])->name('events.create');
-//Route::get('/place/{place}', [PlaceController::class, 'show'])->name('places.one');
+Route::post('/artists', [ArtistController::class, 'store'])->name('artists.create');
+Route::post('/events', [EventController::class, 'store'])->name('events.create');
+Route::post('/places', [PlaceController::class, 'store'])->name('places.create');
 //Route::get('/style/{style}', [StyleController::class, 'show'])->name('styles.one');
 //Route::get('/user/{user}', [UserController::class, 'show'])->name('users.one');
 

@@ -24,7 +24,7 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->apiService->create('place', $request);
     }
 
     /**
