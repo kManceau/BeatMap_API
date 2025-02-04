@@ -14,7 +14,7 @@ use App\Http\Requests\Places\CreatePlaceFormRequest;
 use App\Http\Requests\Styles\CreateStyleFormRequest;
 use App\Http\Requests\Events\UpdateEventFormRequest;
 use App\Http\Requests\Places\UpdatePlaceFormRequest;
-//use App\Http\Requests\Styles\UpdateStyleFormRequest;
+use App\Http\Requests\Styles\UpdateStyleFormRequest;
 
 class ApiService
 {
@@ -103,6 +103,9 @@ class ApiService
                 break;
             case 'place' :
                 $validatedData = $request->validate((new UpdatePlaceFormRequest())->rules());
+                break;
+            case 'style' :
+                $validatedData = $request->validate((new UpdateStyleFormRequest())->rules());
                 break;
         }
         $data->update($validatedData);

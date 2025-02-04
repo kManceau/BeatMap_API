@@ -31,7 +31,7 @@ class StyleController extends Controller
 
     public function update(Request $request, Style $style)
     {
-        //
+        return $this->apiService->update('style', $request, $style);
     }
 
     public function destroy(Style $style)

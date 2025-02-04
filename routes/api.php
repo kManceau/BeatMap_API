@@ -31,7 +31,7 @@ Route::post('/styles', [StyleController::class, 'store'])->name('styles.create')
 Route::post('/artist/{artist}', [ArtistController::class, 'update'])->name('artists.update');
 Route::post('/event/{event}', [EventController::class, 'update'])->name('events.update');
 Route::post('/place/{place}', [PlaceController::class, 'update'])->name('places.update');
-Route::post('/styles/{style}', [StyleController::class, 'update'])->name('styles.update');
+Route::post('/style/{style}', [StyleController::class, 'update'])->name('styles.update');
 
 // DELETE Routes
 Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');
