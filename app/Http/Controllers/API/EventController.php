@@ -48,6 +48,6 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        return $this->apiService->delete('event', $event);
     }
 }

@@ -48,6 +48,6 @@ class StyleController extends Controller
      */
     public function destroy(Style $style)
     {
-        //
+        return $this->apiService->delete('style', $style);
     }
 }

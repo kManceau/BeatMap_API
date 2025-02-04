@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('photo')->nullable();
-            $table->foreignId('style_id')->constrained('styles');
+            $table->foreignId('style_id')->nullable()->constrained('styles')->onDelete('set null');
         });
     }
 

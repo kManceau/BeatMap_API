@@ -50,4 +50,10 @@ class ApiService
         }
         return response()->json($data);
     }
+
+    public function delete($model, $data)
+    {
+        $data->delete();
+        return response()->json(['status' => strtoupper($model[0]) . substr($model, 1) . ' deleted successfully']);
+    }
 }

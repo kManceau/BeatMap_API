@@ -48,6 +48,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        return $this->apiService->delete('user', $user);
     }
 }

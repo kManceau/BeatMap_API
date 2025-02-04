@@ -48,6 +48,6 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        return $this->apiService->delete('place', $place);
     }
 }

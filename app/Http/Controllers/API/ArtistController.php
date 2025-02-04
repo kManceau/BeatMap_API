@@ -48,6 +48,6 @@ class ArtistController extends Controller
      */
     public function destroy(Artist $artist)
     {
-        //
+        return $this->apiService->delete('artist', $artist);
     }
 }
