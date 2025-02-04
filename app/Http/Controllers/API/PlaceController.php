@@ -31,7 +31,7 @@ class PlaceController extends Controller
 
     public function update(Request $request, Place $place)
     {
-        //
+        return $this->apiService->update('place', $request, $place);
     }
 
     public function destroy(Place $place)
