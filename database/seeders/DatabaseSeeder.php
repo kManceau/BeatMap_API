@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ArtistSeeder::class,
             PlaceSeeder::class,
             EventSeeder::class,
+            EventArtistSeeder::class,
         ]);
     }
 }

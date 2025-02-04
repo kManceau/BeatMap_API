@@ -21,4 +21,9 @@ class Artist extends Model
     {
         return $this->belongsTo(Style::class);
     }
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
 }
