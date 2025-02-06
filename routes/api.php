@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ArtistController;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EventController;
 use App\Http\Controllers\API\PlaceController;
 use App\Http\Controllers\API\StyleController;
@@ -39,3 +40,11 @@ Route::delete('/event/{event}', [EventController::class, 'destroy'])->name('even
 Route::delete('/place/{place}', [PlaceController::class, 'destroy'])->name('places.delete');
 Route::delete('/style/{style}', [StyleController::class, 'destroy'])->name('styles.delete');
 Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('users.delete');
+
+// AUTH Routes
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::middleware('auth:api')->group(function () {
+    Route::get('/currentuser', [AuthController::class, 'currentUser'])->name('currentUser');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});

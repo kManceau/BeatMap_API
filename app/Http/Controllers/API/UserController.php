@@ -19,11 +19,6 @@ class UserController extends Controller
         return $this->apiService->getAll('users');
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show(User $user)
     {
         return $this->apiService->getOne('user', $user);
@@ -33,7 +28,7 @@ class UserController extends Controller
     {
         //
     }
-    
+
     public function destroy(User $user)
     {
         return $this->apiService->delete('user', $user);
