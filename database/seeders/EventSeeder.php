@@ -20,7 +20,7 @@ class EventSeeder extends Seeder
             'description' => 'Venez écoutez GiéDré jouer son dernier album !',
             'start_date' => '2025-03-10',
             'end_date' => '2025-03-10',
-            'photo' => null,
+            'photo' => 'gidrenconcert',
             'user_id' => 1,
             'place_id' => 2,
         ]);
@@ -31,7 +31,7 @@ class EventSeeder extends Seeder
             'description' => 'Meilleur Festival de France, voir même du monde.',
             'start_date' => '2025-08-01',
             'end_date' => '2025-08-03',
-            'photo' => null,
+            'photo' => 'lakermessefestival',
             'user_id' => 1,
             'place_id' => 1,
         ]);

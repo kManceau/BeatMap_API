@@ -24,7 +24,7 @@ class PlaceSeeder extends Seeder
             'country' => 'France',
             'latitude' => '43.101745037272835',
             'longitude' => '5.885990570469692',
-            'photo' => null,
+            'photo' => 'lakermessefestival',
             'user_id' => 1,
         ]);
         Place::create([
@@ -38,7 +38,7 @@ class PlaceSeeder extends Seeder
             'country' => 'France',
             'latitude' => '47.38463899422877',
             'longitude' => '0.7013454824868651',
-            'photo' => null,
+            'photo' => 'lebateauivre',
             'user_id' => 1,
         ]);
     }
