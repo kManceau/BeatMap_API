@@ -14,7 +14,7 @@ class ImageService
         $originalWidth = ImageSX($image);
         $originalHeight = ImageSY($image);
         $maxWidth = match ($folder) {
-            'artist', 'event', 'place' => 2000,
+            'artist', 'event', 'place', 'user' => 2000,
             default => $originalWidth,
         };
         if ($originalWidth > $maxWidth) {
