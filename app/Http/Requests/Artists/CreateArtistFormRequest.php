@@ -24,7 +24,7 @@ class CreateArtistFormRequest extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'required|string',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32M',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32768',
             'style_id' => 'integer|exists:styles,id',
         ];
     }

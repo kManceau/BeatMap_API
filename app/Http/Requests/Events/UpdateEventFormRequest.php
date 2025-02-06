@@ -27,7 +27,7 @@ class UpdateEventFormRequest extends FormRequest
             'description' => 'string',
             'start_date' => 'date',
             'end_date' => 'date',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32M',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32768',
             'user_id' => 'integer|exists:users,id',
             'place_id' => 'integer|exists:places,id',
         ];

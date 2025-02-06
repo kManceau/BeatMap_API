@@ -31,7 +31,7 @@ class UpdatePlaceFormRequest extends FormRequest
             'country' => 'string',
             'latitude' => 'numeric',
             'longitude' => 'numeric',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32M',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32768',
             'user_id' => 'integer|exists:users,id'
         ];
     }

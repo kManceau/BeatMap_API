@@ -31,7 +31,7 @@ class CreatePlaceFormRequest extends FormRequest
             'country' => 'required|string',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32M',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:32768',
             'user_id' => 'required|integer|exists:users,id'
         ];
     }
