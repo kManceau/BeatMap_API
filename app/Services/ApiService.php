@@ -64,7 +64,9 @@ class ApiService
         $formRequest = ModelFactory::updateFormRequest($model);
         $validatedData = $request->validate($formRequest->rules());
         if (array_key_exists('photo', $validatedData)) {
-            $photoName = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $validatedData['name']));
+            array_key_exists('name', $validatedData) ?
+                $photoName = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $validatedData['name'])) :
+                $photoName = $data->photo;
             $this->imageService->deleteImages($data->photo, $model);
             $this->imageService->uploadImages($validatedData['photo'], $photoName, $model);
             $validatedData['photo'] = $photoName;

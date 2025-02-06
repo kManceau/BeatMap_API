@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\LoginRequest;
 use App\Http\Requests\Users\RegistrationRequest;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
@@ -18,15 +19,20 @@ class AuthController extends Controller
         $this->user = $user;
     }
 
-    public function register(Request $request): \Illuminate\Http\JsonResponse
+    public function register(Request $request, ImageService $imageService): \Illuminate\Http\JsonResponse
     {
-        $request->validate((new RegistrationRequest)->rules());
+        $data = $request->validate((new RegistrationRequest)->rules());
+        if (array_key_exists('photo', $data)) {
+            $photoName = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $data['name']));
+            $imageService->uploadImages($data['photo'], $photoName, 'user');
+            $data['photo'] = $photoName;
+        }
         $user = $this->user::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
             'role' => 'user',
-            'photo' => null,
+            'photo' => $data['photo'] ?? null,
         ]);
         $token = auth()->login($user);
         if ($token) {

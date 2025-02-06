@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        //
+        return $this->apiService->update('user', $request, $user);
     }
 
     public function destroy(User $user)

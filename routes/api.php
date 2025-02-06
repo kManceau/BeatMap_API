@@ -33,6 +33,7 @@ Route::post('/artist/{artist}', [ArtistController::class, 'update'])->name('arti
 Route::post('/event/{event}', [EventController::class, 'update'])->name('events.update');
 Route::post('/place/{place}', [PlaceController::class, 'update'])->name('places.update');
 Route::post('/style/{style}', [StyleController::class, 'update'])->name('styles.update');
+Route::post('/user/{user}', [UserController::class, 'update'])->name('user.update');
 
 // DELETE Routes
 Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');

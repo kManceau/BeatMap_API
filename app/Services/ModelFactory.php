@@ -10,6 +10,7 @@ use App\Http\Requests\Places\CreatePlaceFormRequest;
 use App\Http\Requests\Places\UpdatePlaceFormRequest;
 use App\Http\Requests\Styles\CreateStyleFormRequest;
 use App\Http\Requests\Styles\UpdateStyleFormRequest;
+use App\Http\Requests\Users\UpdateUserFormRequest;
 use App\Models\Artist;
 use App\Models\Event;
 use App\Models\Place;
@@ -46,6 +47,7 @@ class ModelFactory
             'event' => new UpdateEventFormRequest(),
             'place' => new UpdatePlaceFormRequest(),
             'style' => new UpdateStyleFormRequest(),
+            'user' => new UpdateUserFormRequest(),
         ];
         return $models[$model];
     }
