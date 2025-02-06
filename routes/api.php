@@ -6,6 +6,7 @@ use App\Http\Controllers\API\EventController;
 use App\Http\Controllers\API\PlaceController;
 use App\Http\Controllers\API\StyleController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Middleware\CustomAuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
 // GET ALL Routes
@@ -45,7 +46,7 @@ Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('users.d
 // AUTH Routes
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::middleware('auth:api')->group(function () {
+Route::middleware([CustomAuthMiddleware::class])->group(function () {
     Route::get('/currentuser', [AuthController::class, 'currentUser'])->name('currentUser');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -70,7 +70,7 @@ class AuthController extends Controller
 
     public function currentUser(): \Illuminate\Http\JsonResponse
     {
-        return response()->json(['user' => auth()->user()]);
+            return response()->json(['user' => auth()->user()]);
     }
 
     public function successMessage($message, $token = null, $user = null): \Illuminate\Http\JsonResponse
