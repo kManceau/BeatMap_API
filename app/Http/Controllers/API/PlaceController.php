@@ -16,7 +16,10 @@ class PlaceController extends Controller
     }
     public function index()
     {
-        return $this->apiService->getAll('places');
+        $limit = $_GET['limit'] ?? null;
+        $order_by = $_GET['order_by'] ?? null;
+        $direction = $_GET['direction'] ?? null;
+        return $this->apiService->getAll('places', $limit, $order_by, $direction);
     }
 
     public function store(Request $request)

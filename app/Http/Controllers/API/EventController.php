@@ -16,7 +16,10 @@ class EventController extends Controller
     }
     public function index()
     {
-        return $this->apiService->getAll('events');
+        $limit = $_GET['limit'] ?? null;
+        $order_by = $_GET['order_by'] ?? null;
+        $direction = $_GET['direction'] ?? null;
+        return $this->apiService->getAll('events', $limit, $order_by, $direction);
     }
 
     public function store(Request $request)
