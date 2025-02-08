@@ -17,7 +17,7 @@ class ApiService
         $this->imageService = $imageService;
     }
 
-    public function getAll($model)
+    public function getAll($model, $limit = null, $order_by = null, $direction = null)
     {
         $models = [
             'artists' => Artist::with('style'),
@@ -26,7 +26,17 @@ class ApiService
             'styles' => Style::with(['artists']),
             'users' => User::query()
         ];
-        $data = $models[$model]->get();
+        $data = $models[$model];
+        if($limit){
+            $data = $data->take($limit);
+        }
+        if($order_by){
+            if(!$direction){
+                $direction = 'asc';
+            }
+            $data = $data->orderBy($order_by, $direction);
+        }
+        $data = $data->get();
         return response()->json($data);
     }
 
