@@ -31,10 +31,14 @@ class ApiService
             $data = $data->take($limit);
         }
         if($order_by){
-            if(!$direction){
-                $direction = 'asc';
+            if($order_by === 'start_date'){
+                $data = $data->orderBy($order_by, $direction)->where($order_by, '>', now());
+            }else{
+                if(!$direction){
+                    $direction = 'asc';
+                }
+                $data = $data->orderBy($order_by, $direction);
             }
-            $data = $data->orderBy($order_by, $direction);
         }
         $data = $data->get();
         return response()->json($data);
