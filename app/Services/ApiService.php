@@ -32,7 +32,7 @@ class ApiService
         }
         if($order_by){
             if($order_by === 'start_date'){
-                $data = $data->orderBy($order_by, $direction)->where($order_by, '>', now());
+                $data = $data->orderBy($order_by, 'asc')->where($order_by, '>', now());
             }else{
                 if(!$direction){
                     $direction = 'asc';
