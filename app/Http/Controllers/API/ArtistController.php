@@ -56,6 +56,7 @@ class ArtistController extends Controller
         if($limit){
             $artists = $artists->take($_GET['limit']);
         }
+        $artists = $artists->get();
         return response()->json($artists);
     }
 }
