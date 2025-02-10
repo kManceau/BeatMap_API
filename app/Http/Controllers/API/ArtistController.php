@@ -47,7 +47,7 @@ class ArtistController extends Controller
     public function getPopularArtists()
     {
         $artists = Artist::all();
-        $artists->load('events');
+        $artists->load(['events', 'style']);
         foreach ($artists as $artist) {
             $artist->events_count = $artist->events->count();
         }
