@@ -50,3 +50,5 @@ Route::middleware([CustomAuthMiddleware::class])->group(function () {
     Route::get('/currentuser', [AuthController::class, 'currentUser'])->name('currentUser');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('/artists/popular', [ArtistController::class, 'getPopularArtists'])->name('artists.popular');

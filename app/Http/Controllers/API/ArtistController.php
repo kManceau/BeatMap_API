@@ -4,8 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artist;
+use App\Models\Event;
 use App\Services\ApiService;
 use Illuminate\Http\Request;
+
 
 class ArtistController extends Controller
 {
@@ -40,5 +42,20 @@ class ArtistController extends Controller
     public function destroy(Artist $artist)
     {
         return $this->apiService->delete('artist', $artist);
+    }
+
+    public function getPopularArtists()
+    {
+        $artists = Artist::all();
+        $artists->load('events');
+        foreach ($artists as $artist) {
+            $artist->events_count = $artist->events->count();
+        }
+        $artists = $artists->sortByDesc('events_count');
+        $limit = $_GET['limit'] ?? null;
+        if($limit){
+            $artists = $artists->take($_GET['limit']);
+        }
+        return response()->json($artists);
     }
 }
