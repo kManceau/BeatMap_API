@@ -46,17 +46,15 @@ class ArtistController extends Controller
 
     public function getPopularArtists()
     {
-        $artists = Artist::all();
-        $artists->load(['events', 'style']);
-        foreach ($artists as $artist) {
-            $artist->events_count = $artist->events->count();
-        }
-        $artists = $artists->sortByDesc('events_count');
-        $limit = $_GET['limit'] ?? null;
-        if($limit){
-            $artists = $artists->take($_GET['limit']);
-        }
-        $artists = $artists->get();
+        $limit = request('limit');
+
+        $artists = Artist::withCount('events') // Charge directement le nombre d'événements en SQL
+        ->with(['style', 'events']) // Charge le style de l'artiste
+        ->orderByDesc('events_count') // Trie directement dans la base de données
+        ->when($limit, fn($query) => $query->limit($limit)) // Applique la limite si fournie
+        ->get();
+
         return response()->json($artists);
     }
+
 }
