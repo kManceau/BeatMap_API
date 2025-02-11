@@ -7,6 +7,7 @@ use App\Models\Artist;
 use App\Models\Event;
 use App\Services\ApiService;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Object_;
 
 
 class ArtistController extends Controller
@@ -60,4 +61,29 @@ class ArtistController extends Controller
     public function getPaginatedArtists(){
         return $this->apiService->getPaginated('artists');
     }
+
+    public function getArtistEventsPlaces(Artist $artist)
+    {
+        $artistData = $this->apiService->getOne('artist', $artist);
+        $data = $artistData->getData(true);
+
+        $eventsList = $data['events'] ?? [];
+        $events = []; // Initialize as an array to store multiple events
+
+        foreach ($eventsList as $event) {
+            $temp = Event::where('id', $event['id'])->first();
+            if ($temp) {
+                $temp->load('place');
+                $events[] = $temp; // Append to the array
+            }
+        }
+
+        return response()->json([
+            'artist' => $artist,
+            'events' => $events,
+        ]);
+    }
+
+
+
 }

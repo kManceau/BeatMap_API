@@ -55,3 +55,4 @@ Route::middleware([CustomAuthMiddleware::class])->group(function () {
 Route::get('/artists/popular', [ArtistController::class, 'getPopularArtists'])->name('artists.popular');
 Route::get('/artists/paginated', [ArtistController::class, 'getPaginatedArtists'])->name('artists.paginate');
 Route::get('/events/paginated', [EventController::class, 'getPaginatedEvents'])->name('events.paginate');
+Route::get('/artist/events/{artist}', [ArtistController::class, 'getArtistEventsPlaces'])->name('artists.events.place');
