@@ -51,4 +51,6 @@ Route::middleware([CustomAuthMiddleware::class])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
+
 Route::get('/artists/popular', [ArtistController::class, 'getPopularArtists'])->name('artists.popular');
+Route::get('/artists/paginated', [ArtistController::class, 'getPaginatedArtists'])->name('artists.paginate');

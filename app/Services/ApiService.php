@@ -98,4 +98,15 @@ class ApiService
         $data->delete();
         return response()->json(['status' => strtoupper($model[0]) . substr($model, 1) . ' deleted successfully']);
     }
+
+    public function getPaginated($model)
+    {
+        $models = [
+            'artists' => Artist::with('style'),
+            'events' => Event::with(['place', 'artists', 'user']),
+            'users' => User::query()
+        ];
+        $data = $models[$model];
+        return $data->paginate(20);
+    }
 }

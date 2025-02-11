@@ -57,4 +57,7 @@ class ArtistController extends Controller
         return response()->json($artists);
     }
 
+    public function getPaginatedArtists(){
+        return $this->apiService->getPaginated('artists');
+    }
 }
