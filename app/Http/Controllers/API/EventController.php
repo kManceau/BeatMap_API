@@ -41,4 +41,8 @@ class EventController extends Controller
     {
         return $this->apiService->delete('event', $event);
     }
+
+    public function getPaginatedEvents(){
+        return $this->apiService->getPaginated('events');
+    }
 }
