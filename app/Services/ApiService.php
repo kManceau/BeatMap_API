@@ -47,7 +47,7 @@ class ApiService
     public function getOne($model, $data)
     {
         $models = [
-            'artist' => ['style'],
+            'artist' => ['style', 'events'],
             'event' => ['place', 'artists', 'user'],
             'place' => ['events', 'user'],
             'style' => ['artists'],
