@@ -14,7 +14,7 @@ class CustomAuthMiddleware
                 'code' => 422,
                 'status' => 'error',
                 'message' => 'Access Denied - Not logged in',
-            ]);
+            ], 422);
         }
         return $next($request);
     }
