@@ -102,8 +102,8 @@ class ApiService
     public function getPaginated($model)
     {
         $models = [
-            'artists' => Artist::with('style'),
-            'events' => Event::with(['place', 'artists', 'user']),
+            'artists' => Artist::with('style')->orderBy('name'),
+            'events' => Event::with(['place', 'artists', 'user'])->orderBy('start_date'),
             'users' => User::query()
         ];
         $data = $models[$model];
