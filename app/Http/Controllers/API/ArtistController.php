@@ -68,14 +68,12 @@ class ArtistController extends Controller
         $data = $artistData->getData(true);
 
         $eventsList = $data['events'] ?? [];
-        $events = []; // Initialize as an array to store multiple events
+        $events = [];
 
         foreach ($eventsList as $event) {
             $temp = Event::where('id', $event['id'])->first();
-            if ($temp) {
-                $temp->load('place');
-                $events[] = $temp; // Append to the array
-            }
+            $temp->load('place');
+            $events[] = $temp;
         }
 
         return response()->json([

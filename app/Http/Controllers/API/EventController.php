@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Artist;
 use App\Models\Event;
 use App\Services\ApiService;
 use Illuminate\Http\Request;
@@ -44,5 +45,26 @@ class EventController extends Controller
 
     public function getPaginatedEvents(){
         return $this->apiService->getPaginated('events');
+    }
+
+
+    public function getEventArtistStyle(Event $event)
+    {
+        $eventData = $this->apiService->getOne('event', $event);
+        $data = $eventData->getData(true);
+
+        $artistsList = $data['artists'] ?? [];
+        $artists = [];
+
+        foreach ($artistsList as $artist) {
+            $temp = Artist::where('id', $artist['id'])->first();
+            $temp->load('style');
+            $artists[] = $temp;
+        }
+
+        return response()->json([
+            'event' => $event,
+            'artists' => $artists,
+        ]);
     }
 }

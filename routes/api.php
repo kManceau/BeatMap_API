@@ -56,3 +56,4 @@ Route::get('/artists/popular', [ArtistController::class, 'getPopularArtists'])->
 Route::get('/artists/paginated', [ArtistController::class, 'getPaginatedArtists'])->name('artists.paginate');
 Route::get('/events/paginated', [EventController::class, 'getPaginatedEvents'])->name('events.paginate');
 Route::get('/artist/events/{artist}', [ArtistController::class, 'getArtistEventsPlaces'])->name('artists.events.place');
+Route::get('/event/artists/{event}', [EventController::class, 'getEventArtistStyle'])->name('event.artists.style');
