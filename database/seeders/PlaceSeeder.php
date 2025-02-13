@@ -69,5 +69,19 @@ class PlaceSeeder extends Seeder
             'photo' => '',
             'user_id' => 1,
         ]);
+        Place::create([
+            'id' => 5,
+            'name' => 'Clisson',
+            'description' => "La ville est aussi connue comme Clisson l'italienne en raison de son architecture de style italianisant inspirée de modèles ruraux d'Italie centrale (Ombrie, Latium et Toscane) et de l'aspect paysager de la ville, composé par un artiste du début du XIXe siècle, François-Frédéric Lemot.",
+            'address' => 'Rue du Champ Louet',
+            'city' => 'Clisson',
+            'state' => 'Loire-Atlantique',
+            'zip' => '44190',
+            'country' => 'France',
+            'latitude' => '47.097236330005714',
+            'longitude' => '-1.2696034247926133',
+            'photo' => '',
+            'user_id' => 1,
+        ]);
     }
 }

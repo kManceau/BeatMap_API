@@ -19,5 +19,7 @@ class EventArtistSeeder extends Seeder
         $event->artists()->attach([6, 7]);
         $event = Event::find(3);
         $event->artists()->attach([8, 9]);
+        $event = Event::find(4);
+        $event->artists()->attach([1, 5]);
     }
 }

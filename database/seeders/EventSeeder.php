@@ -46,5 +46,16 @@ class EventSeeder extends Seeder
             'user_id' => 1,
             'place_id' => 4,
         ]);
+        Event::create([
+            'id' => 4,
+            'name' => "Hellfest 2025",
+            'type' => 'festival',
+            'description' => "Le Hellfest, également appelé Hellfest Open Air, est un festival de musique français spécialisé dans les musiques extrêmes, annuellement organisé au mois de juin à Clisson en Loire-Atlantique. Sa forte fréquentation le fait figurer parmi les plus importants festivals de musique français. Il est aussi l'un des plus grands festivals de metal en Europe et le premier en France. Il trouve son origine dans un autre festival musical, le Furyfest, qui se tenait de 2002 à 2005 dans différents lieux de la région des Pays de la Loire ; le Hellfest en prend la suite en 2006 puis connaît, en quelques années, une hausse continue de sa fréquentation, passant de 22 000 pour la première édition à 152 000 entrées payantes en 2015. En 2022, avec plus de 420 000 entrées payantes, il est le plus grand festival de France.",
+            'start_date' => '2025-06-19',
+            'end_date' => '2025-06-22',
+            'photo' => 'hellfest2025',
+            'user_id' => 1,
+            'place_id' => 5,
+        ]);
     }
 }
