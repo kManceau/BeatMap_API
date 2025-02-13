@@ -41,5 +41,33 @@ class PlaceSeeder extends Seeder
             'photo' => 'lebateauivre',
             'user_id' => 1,
         ]);
+        Place::create([
+            'id' => 3,
+            'name' => 'Les Kampagn\'arts',
+            'description' => 'Festival de musique aktuelle en Kampagne',
+            'address' => 'Moulin de l\'Image',
+            'city' => 'Saint-Paterne-Racan',
+            'state' => 'Centre-Val de Loire',
+            'zip' => '37370',
+            'country' => 'France',
+            'latitude' => '47.60539630613135',
+            'longitude' => '0.4739509503831851',
+            'photo' => '',
+            'user_id' => 1,
+        ]);
+        Place::create([
+            'id' => 4,
+            'name' => 'Château de Candé',
+            'description' => "Le château de Candé est un édifice de style Louis XII, situé dans la commune de Monts, dans le département français d'Indre-et-Loire en région Centre-Val de Loire. Il se trouve à 10 km au sud-sud-ouest de Tours sur la rive de l'Indre, au cœur d'un domaine de 260 hectares.",
+            'address' => 'Château de Candé',
+            'city' => 'Monts',
+            'state' => 'Centre-Val de Loire',
+            'zip' => '37260',
+            'country' => 'France',
+            'latitude' => '47.296523840051236',
+            'longitude' => '0.6659945731075044',
+            'photo' => '',
+            'user_id' => 1,
+        ]);
     }
 }

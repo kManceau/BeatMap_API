@@ -14,8 +14,10 @@ class EventArtistSeeder extends Seeder
     public function run(): void
     {
         $event = Event::find(1);
-        $event->artists()->attach([3]);
+        $event->artists()->attach([5]);
         $event = Event::find(2);
-        $event->artists()->attach([2,3,4]);
+        $event->artists()->attach([6, 7]);
+        $event = Event::find(3);
+        $event->artists()->attach([8, 9]);
     }
 }
