@@ -37,7 +37,6 @@ Route::post('/style/{style}', [StyleController::class, 'update'])->name('styles.
 Route::post('/user/{user}', [UserController::class, 'update'])->name('user.update');
 
 // DELETE Routes
-Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');
 Route::delete('/event/{event}', [EventController::class, 'destroy'])->name('events.delete');
 Route::delete('/place/{place}', [PlaceController::class, 'destroy'])->name('places.delete');
 Route::delete('/style/{style}', [StyleController::class, 'destroy'])->name('styles.delete');
@@ -49,6 +48,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::middleware([CustomAuthMiddleware::class])->group(function () {
     Route::get('/currentuser', [AuthController::class, 'currentUser'])->name('currentUser');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::delete('/artist/{artist}', [ArtistController::class, 'destroy'])->name('artists.delete');
+    Route::delete('/event/{event}', [EventController::class, 'destroy'])->name('events.delete');
 });
 
 
