@@ -11,6 +11,7 @@ To setup the api, follow these steps :
 - `composer install`
 - `php artisan storage:link`
 - `php artisan migrate:fresh --seed`
+- `php artisan jwt:secret`
 4. Extract the images.zip in the root folder of the API.
 5. Enjoy !
 
